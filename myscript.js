@@ -86,3 +86,63 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+var totalMonths;
+var totalBalance;
+var averageChange;
+var maxIncrease;
+var maxDecrease;
+
+// calculate months
+totalMonths = finances.length;
+console.log(totalMonths);
+//var firstElement = finances.splice(0,1);
+//console.log(firstElement);
+var firstElement = finances[0]; //1st element:Feb-2010,984655
+console.log("1st element:" + firstElement);
+//var index = finances.findIndex('Jan-2010', 867884)
+//console.log("1st index:" + index);
+//var index2 = finances.findIndex('Feb-2010', 984655)
+//console.log("2nd index:" + index2);
+//var index3 = finances.findIndex('Feb-2017', 671099)
+//console.log("last index:" + index3);
+
+//arrayName[rowIndex][columnIndex]
+console.table(finances)
+var balance = finances[0][1]
+console.log("balance: " + balance);
+console.log(typeof balance);
+
+// calculate Total selecting 2nd element in 2D array
+  var totalBalance = 0;
+  for (var i = 0; i < finances.length; i++) {
+    totalBalance += finances[i][1];
+  }
+  console.log("total balance: " + totalBalance);
+
+// calculate averageChange selecting 2nd element in 2D array 
+// The average of the changes in Profit/Losses over the entire period.
+// You will need to track what the total change in Profit/Losses are from month to month and then find the average.
+// (Total/(Number of months - 1))
+
+  var averageChange = 0;
+  var totalChange = 0;
+  for (var i = 0; i < 1; i++) {
+    totalChange += (finances[i++][1]) - (finances[i][1]) ;
+  }
+  console.log("firstChange: " + totalChange);
+  //averageChange = totalChange / (finances.length -1) ;
+  //console.log("averageChange: " + averageChange);
+
+
+
+// print the analysis to the console
+console.log(
+  "Financial Analysis\n"
+  + "------------------\n"
+  + "Total Months: " + totalMonths
+  + "\nTotal: $" + totalBalance
+  + "\nAverage Change: " + averageChange
+  + "\nGreatest Increase in Profits/Losses: " + maxIncrease
+  + "\nGreatest Decrease in Profits/Losses: " + maxDecrease
+);
