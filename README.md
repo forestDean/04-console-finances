@@ -33,7 +33,8 @@ To view code console, open **Developer Tools** in the browser.
 	
 ## Credits
 	
-MDN Web Docs - Math - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math   
+MDN Web Docs - Math - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math  
+JavaScript Multidimensional Array -  https://www.javascripttutorial.net/javascript-multidimensional-array/   
 Get column from a two dimensional array - https://stackoverflow.com/questions/7848004/get-column-from-a-two-dimensional-array
 
 ## License
