@@ -90,8 +90,8 @@ var finances = [
 var totalMonths;
 var totalBalance;
 var averageChange;
-var maxIncrease;
-var maxDecrease;
+var maxProfit;
+var minProfit;
 
 // calculate months
 totalMonths = finances.length;
@@ -100,7 +100,7 @@ totalMonths = finances.length;
 
 
 //arrayName[rowIndex][columnIndex]
-//console.table(finances)
+
 //var balance = finances[0][1]
 //console.log("balance: " + balance);
 //console.log(typeof balance);
@@ -128,6 +128,52 @@ averageChange = averageChange.toFixed(2);
 //console.log("averageChange: " + averageChange);
 
 // calculate the greatest increase in Profit/Losses (date and amount) over the entire period.
+var maxProfit = 0;
+
+// calculate the greatest increase in Profit/Losses (date and amount) over the entire period.
+var maxProfit = 0;
+
+//https://stackoverflow.com/questions/7848004/get-column-from-a-two-dimensional-array
+
+//create 'change column'
+for (var i = 0; i < finances.length-1; i++) {
+  change = (finances[i+1][1]) - (finances[i][1]);
+  finances[i+1][2] = change;
+}
+
+// max value of column 2
+// maxProfit = Math.max(...finances.map(x => x[2]));
+// console.table(finances)
+// console.log(maxProfit);
+
+// take the third column
+var maxIndex;
+var col3 = finances.map(function(value,index) { return value[2]; });
+firstElement = col3.shift(); //remove undefined 1st element
+maxProfit = Math.max(...col3);
+//maxIndex = finances.findIndex(x => x === maxProfit);
+//maxIndex = finances.indexOf(maxProfit);
+ //maxIndex = find(maxProfit,finances[2]);
+//maxIndex = finances.findIndex(item => item.value === maxProfit);
+//maxIndex  = finances.map().indexOf(maxProfit);
+//*You will get -1 if it cannot find a value in the array.
+var = columnArray;
+for (var i=0; i<finances.length; i++) {
+  maxIndex = finances.indexOf(maxProfit);
+}
+
+// ***Replacing column values will require us to loop through all the rows 
+// ***because every element in a column comes from a different array.
+
+
+
+
+console.table(finances);
+console.log(maxProfit);
+console.log("maxIndex: " + maxIndex + "   maxProfit: " + maxProfit);
+
+
+
 
 
 
@@ -140,6 +186,6 @@ console.log(
   + "Total Months: " + totalMonths
   + "\nTotal: $" + totalBalance
   + "\nAverage Change: $" + averageChange
-  + "\nGreatest Increase in Profits/Losses: " + maxIncrease
-  + "\nGreatest Decrease in Profits/Losses: " + maxDecrease
+  + "\nGreatest Increase in Profits/Losses: $" + maxProfit
+  + "\nGreatest Decrease in Profits/Losses: $" + minProfit
 );
