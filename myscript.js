@@ -94,23 +94,13 @@ var maxProfit;
 var minProfit;
 
 // calculate months
-totalMonths = finances.length;
-
-//console.log(totalMonths);
-
-
-//arrayName[rowIndex][columnIndex]
-
-//var balance = finances[0][1]
-//console.log("balance: " + balance);
-//console.log(typeof balance);
+  totalMonths = finances.length;
 
 // calculate Total selecting 2nd element in 2D array
 var totalBalance = 0;
 for (var i = 0; i < finances.length; i++) {
   totalBalance += finances[i][1];
 }
-//console.log("total balance: " + totalBalance);
 
 // calculate averageChange selecting 2nd element in 2D array 
 // The average of the changes in Profit/Losses over the entire period.
@@ -119,51 +109,40 @@ for (var i = 0; i < finances.length; i++) {
 
 var averageChange = 0;
 var totalChange = 0;
+var maxProfit = 0;
+var minProfit = 0;
+
+// shorten length as undefined 1st element
 for (var i = 0; i < finances.length-1; i++) {
-  totalChange += (finances[i+1][1]) - (finances[i][1]);
+  if (i < 1) {
+    finances[0][2] = 0;
+  }
+  change = (finances[i+1][1]) - (finances[i][1]);
+  totalChange += change;
+//create 3rd 'change' column
+  finances[i+1][2] = change;
 }
 averageChange = totalChange / (finances.length-1) ;
 // print to 2 decimal places
 averageChange = averageChange.toFixed(2);
-//console.log("averageChange: " + averageChange);
 
 // calculate the greatest increase in Profit/Losses (date and amount) over the entire period.
 var maxProfit = 0;
-
-// calculate the greatest increase in Profit/Losses (date and amount) over the entire period.
-var maxProfit = 0;
-
-//https://stackoverflow.com/questions/7848004/get-column-from-a-two-dimensional-array
-
-//create 'change column'
-for (var i = 0; i < finances.length-1; i++) {
-  change = (finances[i+1][1]) - (finances[i][1]);
-  finances[i+1][2] = change;
-}
-
-// max value of column 2
-// maxProfit = Math.max(...finances.map(x => x[2]));
-// console.table(finances)
-// console.log(maxProfit);
-
+// calculate the greatest decrease in Profit/Losses (date and amount) over the entire period.
+var minProfit = 0;
 // take the third column
 var maxIndex;
+var minIndex;
 var col3 = finances.map(function(value,index) { return value[2]; });
-firstElement = col3.shift(); //remove undefined 1st element
 maxProfit = Math.max(...col3);
-//maxIndex = finances.findIndex(x => x === maxProfit);
-//maxIndex = finances.indexOf(maxProfit);
- //maxIndex = find(maxProfit,finances[2]);
-//maxIndex = finances.findIndex(item => item.value === maxProfit);
-//maxIndex  = finances.map().indexOf(maxProfit);
-//*You will get -1 if it cannot find a value in the array.
-var = columnArray;
-for (var i=0; i<finances.length; i++) {
-  maxIndex = finances.indexOf(maxProfit);
-}
+minProfit = Math.min(...col3);
 
-// ***Replacing column values will require us to loop through all the rows 
-// ***because every element in a column comes from a different array.
+// find index in new column
+maxIndex = col3.indexOf(maxProfit);
+minIndex = col3.indexOf(minProfit);
+// find corresponding month
+maxMonth =
+minMonth =
 
 
 
@@ -171,6 +150,9 @@ for (var i=0; i<finances.length; i++) {
 console.table(finances);
 console.log(maxProfit);
 console.log("maxIndex: " + maxIndex + "   maxProfit: " + maxProfit);
+console.log(maxMonth + "   maxProfit: " + maxProfit);
+console.log("minIndex: " + minIndex + "   minProfit: " + minProfit);
+console.log(minMonth + "   minProfit: " + minProfit);
 
 
 
