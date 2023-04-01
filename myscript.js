@@ -149,7 +149,7 @@ maxMonth = finances[maxIndex][0]
 minMonth = finances[minIndex][0]
 
 // check multi-dimensional array
-console.table(finances);
+//console.table(finances);
 
 // print the analysis to the console
 console.log(
