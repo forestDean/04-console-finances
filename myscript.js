@@ -96,13 +96,13 @@ var minProfit;
 // calculate months
   totalMonths = finances.length;
 
-// calculate Total selecting 2nd element in 2D array
+// calculate Total selecting 2nd element in multi-dimensional (2D) array.
 var totalBalance = 0;
 for (var i = 0; i < finances.length; i++) {
   totalBalance += finances[i][1];
 }
 
-// calculate averageChange selecting 2nd element in 2D array 
+// calculate averageChange selecting 2nd element in multi-dimensional (2D) array
 // The average of the changes in Profit/Losses over the entire period.
 // You will need to track what the total change in Profit/Losses are from month to month and then find the average.
 // Total/(Number of months - 1)
@@ -119,19 +119,19 @@ for (var i = 0; i < finances.length-1; i++) {
   }
   change = (finances[i+1][1]) - (finances[i][1]);
   totalChange += change;
-//create 3rd 'change' column
+// create 3rd 'change' column
   finances[i+1][2] = change;
 }
 averageChange = totalChange / (finances.length-1) ;
 // print to 2 decimal places
 averageChange = averageChange.toFixed(2);
 
-// calculate the greatest increase in Profit/Losses (date and amount) over the entire period.
+// calculate the greatest increase in Profit/Losses (date and amount) over the entire period
 var maxProfit = 0;
-// calculate the greatest decrease in Profit/Losses (date and amount) over the entire period.
+// calculate the greatest decrease in Profit/Losses (date and amount) over the entire period
 var minProfit = 0;
-// take the third column
-//https://stackoverflow.com/questions/7848004/get-column-from-a-two-dimensional-array
+// get the 3rd column
+// https://stackoverflow.com/questions/7848004/get-column-from-a-two-dimensional-array
 var maxIndex;
 var minIndex;
 var col3 = finances.map(function(value,index) { 
@@ -141,15 +141,15 @@ var col3 = finances.map(function(value,index) {
 maxProfit = Math.max(...col3);
 minProfit = Math.min(...col3);
 
-// find index in new column
+// find index in 3rd column
 maxIndex = col3.indexOf(maxProfit);
 minIndex = col3.indexOf(minProfit);
 // find corresponding month
 maxMonth = finances[maxIndex][0]
 minMonth = finances[minIndex][0]
 
-// check multi-dimensional array
-//console.table(finances);
+// *check multi-dimensional (2D) array*
+// console.table(finances);
 
 // print the analysis to the console
 console.log(
