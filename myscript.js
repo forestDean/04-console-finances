@@ -131,9 +131,13 @@ var maxProfit = 0;
 // calculate the greatest decrease in Profit/Losses (date and amount) over the entire period.
 var minProfit = 0;
 // take the third column
+//https://stackoverflow.com/questions/7848004/get-column-from-a-two-dimensional-array
 var maxIndex;
 var minIndex;
-var col3 = finances.map(function(value,index) { return value[2]; });
+var col3 = finances.map(function(value,index) { 
+  return value[2]; 
+  }
+);
 maxProfit = Math.max(...col3);
 minProfit = Math.min(...col3);
 
@@ -141,25 +145,11 @@ minProfit = Math.min(...col3);
 maxIndex = col3.indexOf(maxProfit);
 minIndex = col3.indexOf(minProfit);
 // find corresponding month
-maxMonth =
-minMonth =
+maxMonth = finances[maxIndex][0]
+minMonth = finances[minIndex][0]
 
-
-
-
+// check multi-dimensional array
 console.table(finances);
-console.log(maxProfit);
-console.log("maxIndex: " + maxIndex + "   maxProfit: " + maxProfit);
-console.log(maxMonth + "   maxProfit: " + maxProfit);
-console.log("minIndex: " + minIndex + "   minProfit: " + minProfit);
-console.log(minMonth + "   minProfit: " + minProfit);
-
-
-
-
-
-
-
 
 // print the analysis to the console
 console.log(
@@ -168,6 +158,6 @@ console.log(
   + "Total Months: " + totalMonths
   + "\nTotal: $" + totalBalance
   + "\nAverage Change: $" + averageChange
-  + "\nGreatest Increase in Profits/Losses: $" + maxProfit
-  + "\nGreatest Decrease in Profits/Losses: $" + minProfit
+  + "\nGreatest Increase in Profits/Losses: " + maxMonth + " - $" + maxProfit
+  + "\nGreatest Decrease in Profits/Losses: " + minMonth + " - $" + minProfit
 );
